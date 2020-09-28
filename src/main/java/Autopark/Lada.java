@@ -9,7 +9,11 @@ public final class Lada extends Car {
 
     public void getBroken() {
         defaultPower = power;
-        power = 0;
+        if (power - 50 < 0) {
+            throw new RuntimeException("Car can't has power less than 0");
+        } else {
+            power -= 50;
+        }
     }
 
     public void repair() {
